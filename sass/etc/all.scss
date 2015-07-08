@@ -1,0 +1,36 @@
+/**
+ * GLOBAL SASS VARIABLES
+ */
+
+/** FONT */
+$font-size: 12px;
+$font-family: helvetica,arial,verdana,sans-serif;
+
+/** BODY */
+$body-background-color: #CCCCCC;
+
+/** BUTTON */
+$button-small-font-size: 12px;
+
+/** PANEL */
+// $panel-header-color: #6A7B85;
+// $panel-header-font-size: 14px;
+// $panel-header-font-weight: bold;
+// $panel-header-text-margin: 0 0 0 6px;
+$panel-body-background-color: transparent;
+
+/** GRID */
+$grid-header-background-color: #F5F5F5;
+$grid-column-header-font-weight: bold;
+$grid-grouped-header-background-color: #F8F8F8;
+$grid-grouped-title-font-weight: bold;
+$grid-grouped-title-line-height: 13px;
+$grid-row-cell-line-height: 14px;
+
+/** TAB */
+$tab-glyph-opacity: 1;
+
+/** LOADMASK */
+$loadmask-opacity: 1;
+$loadmask-background-color: #E5E5E5;
+$loadmask-msg-inner-font-weight: bold;

@@ -1,0 +1,10 @@
+{
+  "name": "octo-zab",
+  "version": "0.1.0",
+  "dependencies": {
+    "ioredis": "^1.5.7",
+    "request": "^2.58.0",
+    "socket.io": "^1.3.5",
+    "underscore": "^1.8.3"
+  }
+}

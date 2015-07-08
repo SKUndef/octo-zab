@@ -1,0 +1,36 @@
+/**
+ * MAIN APP CSS rules.
+ */
+
+/** NO DATA MASK */
+.no-data-mask .x-mask-msg-text {
+	background: slategrey;
+	background-image: none;
+	padding: 10px;
+	color: white;
+}
+
+/** GRIDS */
+.x-grid-filters-filtered-column	{ color: #1E90FF; }
+.wrap-text-cell div				{ white-space: normal; }
+
+/** MAIN TAB BAR */
+.main-bar.x-panel-header-default-vertical					{ background-color: transparent;}
+.main-bar .x-tab-bar-default								{ background-color: transparent; }
+.main-bar .x-tab-bar-default-left > .x-tab-bar-body-default	{ padding: 0 13px; }
+.main-bar .x-tab-default									{ border-color: transparent; }
+.main-bar .x-tab-default-left								{ padding: 5px 10px; background-color: transparent; }
+.main-bar .x-tab-active.x-tab-default						{ background-color: #6F7D85; border-color: #6F7D85; border-radius: 2px}
+.main-bar .x-tab-over.x-tab-default .x-tab-glyph			{ color: white; }
+.main-bar .x-tab-icon-el-default.x-tab-glyph				{ font-size: 22px; line-height: 22px; width: 22px; height: 22px; }
+
+/** LOGO */
+.logo-text {
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	font-weight: bold;
+	font-size: 24px;
+	font-family: verdana,sans-serif;
+}
