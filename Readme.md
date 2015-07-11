@@ -1,6 +1,10 @@
 # OctoZab
 
+![Alt text](resources/images/demo.png "Demo Example")
+
 This application is a backend/frontend system to remotely control multiple Zabbix servers (http://www.zabbix.com/).
+
+Demo: [here](http://demo.quadrata.it/octozab/)
 
 
 ## Features
@@ -41,7 +45,8 @@ Install NodeJS module dependencies. Move from command-line to backend folder and
 npm install
 ```
 
-Frontend is based on ExtJS framework. In order to make the source code work, you have first to install SenchaCmd tool version [5.0.0.160](http://cdn.sencha.com/cmd/5.0.0.160/SenchaCmd-5.0.0.160-linux-x64.run.zip) (link is for Linux 64bit version). Then from command-line move to frontend folder, and give the following commands:
+Frontend is based on ExtJS framework. In order to make the source code work, you have first to install SenchaCmd tool version [5.0.0.160](http://cdn.sencha.com/cmd/5.0.0.160/SenchaCmd-5.0.0.160-linux-x64.run.zip) (link is for Linux 64bit version). Check SenchaCmd dependencies [here](http://docs.sencha.com/cmd/5.x/intro_to_cmd.html#System_Setup) (Java >=1.7, Ruby >=2.0.0, Compass).
+Then from command-line move to frontend folder, and give the following commands:
 
 ```shell
 sencha app upgrade
