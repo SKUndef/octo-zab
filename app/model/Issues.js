@@ -16,13 +16,46 @@ Ext.define('OctoZab.model.Issues', {
 				return value;
 			}
 		}
+	},{
+		name: 'age',
+		calculate: function(data) {
+			var lastChange = new Date(data.lastchange),
+				now = new Date(),
+				days, hours, mins;
+
+			days = Ext.Date.diff(
+				lastChange,
+				now,
+				Ext.Date.DAY
+			);
+			hours = Ext.Date.diff(
+				lastChange,
+				Ext.Date.subtract(now, Ext.Date.DAY, days),
+				Ext.Date.HOUR
+			);
+			mins = Ext.Date.diff(
+				lastChange,
+				Ext.Date.subtract(
+					Ext.Date.subtract(now, Ext.Date.DAY, days),
+					Ext.Date.HOUR,
+					hours
+				),
+				Ext.Date.MINUTE
+			);
+
+			return days + 'd ' + hours + 'h ' + mins + 'm';
+		}
 	},
 		'server',
 		'hostname',
 		'description',
 		'comments',
 		'priority',
+		'triggerid',
 	{
+		name: 'eventid',
+		mapping: 'lastEvent.eventid'
+	},{
 		name: 'acknowledged',
 		mapping: 'lastEvent.acknowledged',
 		type: 'boolean'

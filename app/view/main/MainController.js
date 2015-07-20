@@ -117,7 +117,7 @@ Ext.define('OctoZab.view.main.MainController', {
 							Ext.StoreMgr.lookup('Issues').reload();
 							Cache.getIssuesMap().setTitle(null, { text: 'Overview: ' + e.point.parent.toUpperCase() + ' (' + e.point.name + ')'});
 						}
-					},
+					}
 				}
 			}]
 		}));

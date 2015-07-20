@@ -6,6 +6,8 @@ Ext.define('OctoZab.view.issuesGrid.IssuesGrid', {
 	extend: 'Ext.grid.Panel',
 
 	xtype: 'grid-issues',
+	controller: 'issuesGrid',
+
 	store: 'Issues',
 	plugins: 'gridfilters',
 
@@ -27,20 +29,13 @@ Ext.define('OctoZab.view.issuesGrid.IssuesGrid', {
 			}
 
 			switch (record.data.priority) {
-				case "0":
-					return 'not-classified-row';
-				case "1":
-					return 'info-row';
-				case "2":
-					return 'warning-row';
-				case "3":
-					return 'average-row';
-				case "4":
-					return 'high-row';
-				case "5":
-					return 'disaster-row';
-				default:
-					return 'not-classified-row';
+				case "0": 	return 'not-classified-row';
+				case "1": 	return 'info-row';
+				case "2": 	return 'warning-row';
+				case "3": 	return 'average-row';
+				case "4": 	return 'high-row';
+				case "5": 	return 'disaster-row';
+				default	: 	return 'not-classified-row';
 			}
 		}
 	},
@@ -53,6 +48,10 @@ Ext.define('OctoZab.view.issuesGrid.IssuesGrid', {
 		xtype: 'datecolumn',
 		format: 'd/m/y H:i:s',
 		filter: true
+	},{
+		text: 'Age',
+		dataIndex: 'age',
+		width: 100
 	},{
 		text: 'Zabbix Server',
 		dataIndex: 'server',
@@ -69,17 +68,13 @@ Ext.define('OctoZab.view.issuesGrid.IssuesGrid', {
 		dataIndex: 'description',
 		flex: 3
 	},{
-		text: 'Description',
-		dataIndex: 'comments',
-		flex: 3
-	},{
 		text: 'Ack',
 		dataIndex: 'acknowledged',
 		align: 'center',
 		width: 65,
 		xtype: 'booleancolumn',
 		renderer: function(value, metaData) {
-			return (value === true) ? 'Yes' : 'No';
+			return (value) ? 'Yes' : 'No';
 		}
 	},{
 		text: 'Severity',
@@ -89,23 +84,17 @@ Ext.define('OctoZab.view.issuesGrid.IssuesGrid', {
 		renderer: function(value, metaData, record) {
 			switch (value) {
 				case "0":
-					metaData.tdCls = 'not-classified-cell';
-					return "Not classified";
+					metaData.tdCls = 'not-classified-cell';	return "Not classified";
 				case "1":
-					metaData.tdCls = 'info-cell';
-					return "Info";
+					metaData.tdCls = 'info-cell'; 			return "Info";
 				case "2":
-					metaData.tdCls = 'warning-cell';
-					return "Warning";
+					metaData.tdCls = 'warning-cell'; 		return "Warning";
 				case "3":
-					metaData.tdCls = 'average-cell';
-					return "Average";
+					metaData.tdCls = 'average-cell'; 		return "Average";
 				case "4":
-					metaData.tdCls = 'high-cell';
-					return "High";
+					metaData.tdCls = 'high-cell'; 			return "High";
 				case "5":
-					metaData.tdCls = 'disaster-cell';
-					return "Disaster";
+					metaData.tdCls = 'disaster-cell'; 		return "Disaster";
 				default:
 					return value;
 			}

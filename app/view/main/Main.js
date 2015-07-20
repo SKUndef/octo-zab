@@ -40,7 +40,7 @@ Ext.define('OctoZab.view.main.Main', {
 			layout: { type: 'vbox', align: 'stretch' },
 		items: [
 			{ xtype: 'panel'		, margin: '0 10 10 0', flex: 2	, itemId: 'panel-issues-map'	, style: { borderRadius: '3px' }	},
-			{ xtype: 'grid-issues'	, margin: '10 10 0 0', flex: 3									, style: { borderRadius: '3px' }	}
+			{ xtype: 'grid-issues'	, margin: '10 10 0 0', flex: 3	, itemId: 'panel-issues-list'	, style: { borderRadius: '3px' }	}
 		]
 	}]
 });

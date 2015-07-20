@@ -78,7 +78,7 @@ function getIssues(req, auth, server, serverIdx) {
 				maintenance: false,
 				min_severity: 2,
 				expandData: 'true',
-				selectLastEvent: [ 'acknowledged' ],
+				selectLastEvent: [ 'eventid', 'acknowledged' ],
 				filter: { value: 1 }
 			},
 			jsonrpc: '2.0', id: 1, auth: auth
