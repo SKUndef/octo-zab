@@ -12,6 +12,7 @@ Demo: [here](http://demo.quadrata.it/octozab/)
 - Issues list sorted by Severity -> Last Change
 - Issues treemap overview, with drilldown per server
 - Dynamic filtering on issues list through interaction with treemap objects
+- Redirect to issue details from issues list
 
 
 ## Dependencies
