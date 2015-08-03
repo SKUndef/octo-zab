@@ -37,6 +37,7 @@ docker run -it -d -p $frontendHostPort:80 -p $backendHostPort:8080 --name="octoZ
 where $frontendHostPort and $backendHostPort are ports on your host where you desire that frontend and backend respectively should run. Now you have to configure a bit the container. Attach to it and add Zabbix servers to monitor:
 
 ```shell
+docker attach octoZab
 redis-cli sadd octo-zab:servers:name.set serverDomain1 serverDomain2 ...
 ```
 
@@ -51,6 +52,9 @@ service httpd start
 service octozab-redis start
 service octozab-node start
 ```
+
+And then detach from container with Ctrl+P-Ctrl+Q.
+
 
 That's it! Now you should be able to connect to application browsing at `http://yourHostUrl:yourHostFrontendPort/octozab` (if you mapped container port 80, webserver one, with port 80 on your host, you can omit the `:yourHostFrontendPort` url part).
 
