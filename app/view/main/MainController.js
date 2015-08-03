@@ -28,7 +28,7 @@ Ext.define('OctoZab.view.main.MainController', {
 			if (Socket.getSocket() === null) {
 				view.mask('Server unreachable...', 'no-data-mask');
 			}
-		}, 350);
+		}, 1000);
 	},
 
 	onLogoMove: function(view) {

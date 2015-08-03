@@ -13,30 +13,30 @@
 .no-ack-cell			{ background-color: #FFF6A5 !important; }
 
 /** EVENT SEVERITY ROWS styling */
-.x-grid-item .disaster-row .x-grid-cell					{ background-color: #FF3838; cursor: pointer; }
-.x-grid-item-selected .disaster-row .x-grid-cell		{ background-color: #E63232; cursor: pointer; }
-.x-grid-item-over .disaster-row .x-grid-cell			{ background-color: #E63232; cursor: pointer; }
+.x-grid-item .disaster-row .x-grid-cell					{ background-color: #FF3838; }
+.x-grid-item-selected .disaster-row .x-grid-cell		{ background-color: #E63232; }
+.x-grid-item-over .disaster-row .x-grid-cell			{ background-color: #E63232; }
 
-.x-grid-item .high-row .x-grid-cell						{ background-color: #FF9999; cursor: pointer; }
-.x-grid-item-selected .high-row .x-grid-cell			{ background-color: #E68A8A; cursor: pointer; }
-.x-grid-item-over .high-row .x-grid-cell				{ background-color: #E68A8A; cursor: pointer; }
+.x-grid-item .high-row .x-grid-cell						{ background-color: #FF9999; }
+.x-grid-item-selected .high-row .x-grid-cell			{ background-color: #E68A8A; }
+.x-grid-item-over .high-row .x-grid-cell				{ background-color: #E68A8A; }
 
-.x-grid-item .average-row .x-grid-cell					{ background-color: #FFB689; cursor: pointer; }
-.x-grid-item-selected .average-row .x-grid-cell			{ background-color: #E6A47B; cursor: pointer; }
-.x-grid-item-over .average-row .x-grid-cell				{ background-color: #E6A47B; cursor: pointer; }
+.x-grid-item .average-row .x-grid-cell					{ background-color: #FFB689; }
+.x-grid-item-selected .average-row .x-grid-cell			{ background-color: #E6A47B; }
+.x-grid-item-over .average-row .x-grid-cell				{ background-color: #E6A47B; }
 
-.x-grid-item .warning-row .x-grid-cell					{ background-color: #FFF6A5; cursor: pointer; }
-.x-grid-item-selected .warning-row .x-grid-cell			{ background-color: #E6DD95; cursor: pointer; }
-.x-grid-item-over .warning-row .x-grid-cell				{ background-color: #E6DD95; cursor: pointer; }
+.x-grid-item .warning-row .x-grid-cell					{ background-color: #FFF6A5; }
+.x-grid-item-selected .warning-row .x-grid-cell			{ background-color: #E6DD95; }
+.x-grid-item-over .warning-row .x-grid-cell				{ background-color: #E6DD95; }
 
-.x-grid-item .info-row .x-grid-cell						{ background-color: #D6F6FF; cursor: pointer; }
-.x-grid-item-selected .info-row .x-grid-cell			{ background-color: #C1DDE6; cursor: pointer; }
-.x-grid-item-over .info-row .x-grid-cell				{ background-color: #C1DDE6; cursor: pointer; }
+.x-grid-item .info-row .x-grid-cell						{ background-color: #D6F6FF; }
+.x-grid-item-selected .info-row .x-grid-cell			{ background-color: #C1DDE6; }
+.x-grid-item-over .info-row .x-grid-cell				{ background-color: #C1DDE6; }
 
-.x-grid-item .not-classified-row .x-grid-cell			{ background-color: #DBDBDB; cursor: pointer; }
-.x-grid-item-selected .not-classified-row .x-grid-cell	{ background-color: #BFBFBF; cursor: pointer; }
-.x-grid-item-over .not-classified-row .x-grid-cell		{ background-color: #BFBFBF; cursor: pointer; }
+.x-grid-item .not-classified-row .x-grid-cell			{ background-color: #DBDBDB; }
+.x-grid-item-selected .not-classified-row .x-grid-cell	{ background-color: #BFBFBF; }
+.x-grid-item-over .not-classified-row .x-grid-cell		{ background-color: #BFBFBF; }
 
-.x-grid-item .acknowledged-row .x-grid-cell				{ background-color: #AAFFAA; cursor: pointer; }
-.x-grid-item-selected .acknowledged-row .x-grid-cell	{ background-color: #99E699; cursor: pointer; }
-.x-grid-item-over .acknowledged-row .x-grid-cell		{ background-color: #99E699; cursor: pointer; }
+.x-grid-item .acknowledged-row .x-grid-cell				{ background-color: #AAFFAA; }
+.x-grid-item-selected .acknowledged-row .x-grid-cell	{ background-color: #99E699; }
+.x-grid-item-over .acknowledged-row .x-grid-cell		{ background-color: #99E699; }

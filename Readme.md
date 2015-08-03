@@ -25,6 +25,35 @@ Demo: [here](http://demo.quadrata.it/octozab/)
 
 Backend is made by a NodeJS server, that operates in order to authenticate Zabbix servers and communicate with APIs they expose. Collected data is then stored on Redis DB, that caches it. Redis keys are monitored by the server in order to send changes back to client frontends whenever they occur. Clients are connected to server through WebSockets.
 
+## Docker Container
+
+An easy and fast way to test the application is using our Docker container. Install [docker](https://docs.docker.com/) on your machine, pull the image and run it:
+
+```shell
+docker pull skundef/octozab
+docker run -it -d -p $frontendHostPort:80 -p $backendHostPort:8080 --name="octoZab" skundef/octozab
+```
+
+where $frontendHostPort and $backendHostPort are ports on your host where you desire that frontend and backend respectively should run. Now you have to configure a bit the container. Attach to it and add Zabbix servers to monitor:
+
+```shell
+redis-cli sadd octo-zab:servers:name.set serverDomain1 serverDomain2 ...
+```
+
+Whenever you want to remove some of the servers, replace `sadd` with `sdel` and specify list of servers to remove (after having modified servers list to monitor, restart `octozab-node` service mentioned below). At the moment backend connects to Zabbix servers through default administration user `Admin` and psw `zabbix`, so be sure they exist on them.
+
+Modify frontend `"/var/www/html/octozab/config.js"` with your host url and host backend port you defined above at container run.
+
+Finally, start the necessary services:
+
+```shell
+service httpd start
+service octozab-redis start
+service octozab-node start
+```
+
+That's it! Now you should be able to connect to application browsing at `http://yourHostUrl:yourHostFrontendPort/octozab` (if you mapped container port 80, webserver one, with port 80 on your host, you can omit the `:yourHostFrontendPort` url part).
+
 
 ## Installation
 
@@ -38,7 +67,7 @@ List of Zabbix servers to monitor is retrieved from Redis DB, therefore it's nec
 redis-cli sadd octo-zab:servers:name.set serverDomain1 serverDomain2 ...
 ```
 
-Whenever you want to remove some of the servers, replace `sadd` with `sdel` and specify list of servers to remove. At the moment backend connects to Zabbix servers through default administration user `Admin` and psw `zabbix`, so be sure they exist on them.
+Whenever you want to remove some of the servers, replace `sadd` with `sdel` and specify list of servers to remove (after having modified servers list to monitor, restart `octozab-node` service mentioned below). At the moment backend connects to Zabbix servers through default administration user `Admin` and psw `zabbix`, so be sure they exist on them.
 
 Install NodeJS module dependencies. Move from command-line to backend folder and run following command:
 

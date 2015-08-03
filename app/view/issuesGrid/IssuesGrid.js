@@ -46,8 +46,14 @@ Ext.define('OctoZab.view.issuesGrid.IssuesGrid', {
 		align: 'center',
 		width: 145,
 		xtype: 'datecolumn',
-		format: 'd/m/y H:i:s',
-		filter: true
+		// format: 'd/m/y H:i:s',
+		filter: true,
+		renderer: function(value, metaData) {
+			metaData.style 	= 'cursor: pointer;';
+			metaData.tdAttr = 'title="Click for issue details"';
+
+			return Ext.Date.format(value, "d/m/y H:i:s");
+		}
 	},{
 		text: 'Age',
 		dataIndex: 'age',
@@ -57,16 +63,34 @@ Ext.define('OctoZab.view.issuesGrid.IssuesGrid', {
 		dataIndex: 'server',
 		align: 'center',
 		flex: 1,
-		filter: 'string'
+		filter: 'string',
+		renderer: function(value, metaData) {
+			metaData.style 	= 'cursor: pointer;';
+			metaData.tdAttr = 'title="Click for Zabbix server overview"';
+
+			return value;
+		}
 	},{
 		text: 'Hostname',
 		dataIndex: 'hostname',
 		flex: 2,
-		filter: 'string'
+		filter: 'string',
+		renderer: function(value, metaData) {
+			metaData.style 	= 'cursor: pointer;';
+			metaData.tdAttr = 'title="Click for latest host data"';
+
+			return value;
+		}
 	},{
 		text: 'Trigger',
 		dataIndex: 'description',
-		flex: 3
+		flex: 3,
+		renderer: function(value, metaData) {
+			metaData.style 	= 'cursor: pointer;';
+			metaData.tdAttr = 'title="Click for issue details"';
+
+			return value;
+		}
 	},{
 		text: 'Ack',
 		dataIndex: 'acknowledged',

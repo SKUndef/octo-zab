@@ -47,6 +47,7 @@ Ext.define('OctoZab.model.Issues', {
 		}
 	},
 		'server',
+		'hostid',
 		'hostname',
 		'description',
 		'comments',
