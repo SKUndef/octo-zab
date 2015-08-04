@@ -30,7 +30,7 @@ Backend is made by a NodeJS server, that operates in order to authenticate Zabbi
 An easy and fast way to test the application is using our Docker container. Install [docker](https://docs.docker.com/) on your machine, pull the image and run it:
 
 ```shell
-docker pull skundef/octozab
+docker pull quadrata/octozab
 docker run -it -d -p $frontendHostPort:80 -p $backendHostPort:8080 --name="octoZab" skundef/octozab
 ```
 
