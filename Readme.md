@@ -31,10 +31,15 @@ An easy and fast way to test the application is using our Docker container. Inst
 
 ```shell
 docker pull quadrata/octozab
-docker run -it -d -p $frontendHostPort:80 -p $backendHostPort:8080 --name="octoZab" skundef/octozab
+docker run -it -d -p $frontendHostPort:80 -p $backendHostPort:8080 --name="octoZab" quadrata/octozab
 ```
 
-where $frontendHostPort and $backendHostPort are ports on your host where you desire that frontend and backend respectively should run. Now you have to configure a bit the container. Attach to it and add Zabbix servers to monitor:
+where $frontendHostPort and $backendHostPort are ports on your host where you desire that frontend and backend respectively should run. Now you have to configure a bit the container. Attach to it, start Apache WebServer and Redis services, and add Zabbix servers to monitor:
+
+```shell
+service httpd start
+service octozab-redis start
+```
 
 ```shell
 docker attach octoZab
@@ -45,11 +50,9 @@ Whenever you want to remove some of the servers, replace `sadd` with `sdel` and 
 
 Modify frontend `"/var/www/html/octozab/config.js"` with your host url and host backend port you defined above at container run.
 
-Finally, start the necessary services:
+Finally, start the backend server:
 
 ```shell
-service httpd start
-service octozab-redis start
 service octozab-node start
 ```
 
