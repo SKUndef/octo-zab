@@ -13,12 +13,14 @@ Ext.define('OctoZab.view.main.Main', {
 
 	xtype: 'app-main',
 	controller: 'main',
+	viewModel: { type: 'main' },
 
 	plugins: 'viewport',
 
-	header: { cls: 'main-bar'},
+	header: { cls: 'main-bar' },
+	tabBar: { cls: 'main-bar' },
+	
 	headerPosition: 'left',
-	tabBar: { cls: 'main-bar'},
 	tabBarHeaderPosition: 0,
 	tabPosition: 'left',
 	tabRotation: 0,
@@ -26,21 +28,52 @@ Ext.define('OctoZab.view.main.Main', {
 	tools: [{
 		xtype: 'tbtext',
 		itemId: 'logo-text',
-		text: 'OCTO<span style="background-color: #BF0000; color: #FFF; padding: 0 5px">ZAB</span>',
+		text: '<span style="color: #FFF">OCTO<span style="background-color: #BF0000; color: #FFF; padding: 0 5px">ZAB</span></span>',
 		cls: 'logo-text'
 	}],
 
 	defaults: {
-		tabConfig: { tooltipType: 'title' }
+		bodyPadding: 	'20 50 20 50',
+		tabConfig: 		{ tooltipType: 	'title' }
 	},
 	items: [{
 		glyph: 'xf0e4@FontAwesome',
-		margin: '15 10 15 0',
 		tooltip: 'Dashboard',
-			layout: { type: 'vbox', align: 'stretch' },
-		items: [
-			{ xtype: 'panel'		, margin: '0 10 10 0', flex: 2	, itemId: 'panel-issues-map'	, style: { borderRadius: '3px' }	},
-			{ xtype: 'grid-issues'	, margin: '10 10 0 0', flex: 3	, itemId: 'panel-issues-list'	, style: { borderRadius: '3px' }	}
-		]
+		
+		layout: { type: 'vbox', align: 'stretch' },
+		
+		items: [{
+			xtype: 	'tbtext',
+			text: 	"DASHBOARD",
+			height: 26,
+			margin: '0 0 20 0',
+			cls: 	'tab-panel-title'
+		},{
+			xtype: 	'panel',
+			itemId: 'panel-issues-map',
+			margin: '0 0 10 0',
+			flex: 	3,
+			bind: {
+				title: 	'ISSUES MAP - Overview: {issuesMapView}'
+			}
+		},{
+			xtype: 	'grid-issues',
+			itemId: 'panel-issues-list',
+			margin: '10 0 0 0',
+			flex: 	4
+		}]
+	},{
+		glyph: 'xf013@FontAwesome',
+		tooltip: 'Settings',
+		
+		layout: { type: 'vbox', align: 'stretch' },
+		
+		items: [{
+			xtype: 	'tbtext',
+			text: 	"SETTINGS",
+			height: 26,
+			margin: '0 0 20 0',
+			cls: 	'tab-panel-title'
+		}]
 	}]
 });

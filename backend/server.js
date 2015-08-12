@@ -71,17 +71,16 @@ function serverAuth(req, server, serverIdx) {
 function getIssues(req, auth, server, serverIdx) {
 	req({
 		body: {
-			method: 'trigger.get',
+			method: 'trigger.get', jsonrpc: '2.0', id: 1, auth: auth,
 			params: {
-				output: [ 'description', 'comments', 'lastchange', 'priority' ],
-				monitored: true,
-				maintenance: false,
-				min_severity: 2,
-				expandData: 'true',
-				selectLastEvent: [ 'eventid', 'acknowledged' ],
-				filter: { value: 1 }
-			},
-			jsonrpc: '2.0', id: 1, auth: auth
+				output: 			[ 'description', 'comments', 'lastchange', 'priority' ],
+				monitored: 			true,
+				maintenance: 		false,
+				min_severity: 		2,
+				expandData: 		'true',
+				selectLastEvent: 	[ 'eventid', 'acknowledged' ],
+				filter: 			{ value: 1 }
+			}
 		}
 	}, 
 		function(err,resp,body) {
@@ -94,29 +93,29 @@ function getIssues(req, auth, server, serverIdx) {
 						4: 'High',
 						5: 'Disaster'
 					},
-					severityCount = [0, 0, 0, 0, 0, 0],
+					severityCount = {},
 					mapData = [];
 
 				body.result.forEach(function(issue) {
 					issue.server = server;
-					severityCount[issue.priority] += 1;
+					severityCount[issue.priority] = (severityCount[issue.priority]) ? severityCount[issue.priority] + 1 : 1;
 				});
 
 				mapData.push({
 					id: server,
 					name: server.toUpperCase(),
-					colorValue: severityCount.indexOf(_.last(_.compact(severityCount)))
+					colorValue: _.max(_.keys(severityCount))
 				});
 
-				for (var i = 0; i < severityCount.length; i++) {
+				_.each(severityCount, function(v,k) {
 					mapData.push({
-						id: server + '_' + i,
-						name: severityMapping[i],
+						id: server + '_' + k,
+						name: severityMapping[k],
 						parent: server,
-						value: severityCount[i],
-						colorValue: i
+						value: v,
+						colorValue: k
 					});
-				}
+				});
 
 				pub.mset(
 					'octo-zab:' + server + ':monitored:trigger.get.issues'		, JSON.stringify(body.result),

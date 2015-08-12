@@ -32,90 +32,86 @@ Ext.define('OctoZab.view.main.MainController', {
 	},
 
 	onLogoMove: function(view) {
-		view.alignTo(this.getView().getEl(), 'bl', [28,-155]);
+		view.alignTo(this.getView().getEl(), 'bl', [19,-155]);
 	},
 
 	onIssuesMapRender: function(panel) {
 		Cache.setIssuesMap(new Highcharts.Chart({
 			chart: { 
-				renderTo: panel.body.dom, backgroundColor: '#717E85'
+				renderTo: panel.body.dom, backgroundColor: '#505459', spacing: [18, 60, 18, 60]
 			},
-			title: {
-				text: 'Issues Map', align: 'left', x: 10,
-				style: { color: '#FFFFFF', fontSize: '24px', fontVariant: 'small-caps' }
-			},
-			subtitle: {
-				text: 'Overview: ALL', align: 'left', x: 10,
-				style: { color: '#E6E6E6', fontSize: '14px' }
-			},
+			title: { text: null },
 			credits: { enabled: false },
-			navigation: {
-				buttonOptions: {
-					symbolStroke: '#F3F3F3', // symbolY: 45,
-					theme: {
-						fill: "#717E85",
-						states: {
-							hover:	{ stroke: '#40484C', fill: '#40484C' },
-							select:	{ stroke: '#40484C', fill: '#40484C' }
-						}
-					}
-				}
+			noData: {
+				style: { fontSize: '12px', color: '#FFF' }
 			},
+			// navigation: { buttonOptions: { symbolStroke: '#F3F3F3', // symbolY: 45, theme: { fill: "#7E878C", states: { hover:	{ stroke: '#40484C', fill: '#40484C' }, select:	{ stroke: '#40484C', fill: '#40484C' } } } } },
 			legend: {
 				layout: 'vertical', align: 'right', verticalAlign: 'bottom',
-				itemMarginTop: 1, itemMarginBottom: 1, itemHoverStyle: null, // itemHiddenStyle: null,
-				itemStyle: { color: "#F3F3F3", fontWeight: 'normal' }
+				itemMarginTop: 0, itemMarginBottom: 0, itemHoverStyle: null, // itemHiddenStyle: null,
+				itemStyle: { color: "#FFF", fontWeight: 'bold' }
 			},
 			colorAxis: {
 				dataClasses: [
 					{ color: '#DDD', name: 'Not Classified'	, from: 0, to: 0},
-					{ color: '#DFF', name: 'Information'	, from: 1, to: 1},
-					{ color: '#FFA', name: 'Warning'		, from: 2, to: 2},
-					{ color: '#FB8', name: 'Average'		, from: 3, to: 3},
-					{ color: '#F99', name: 'High'			, from: 4, to: 4},
-					{ color: '#F33', name: 'Disaster'		, from: 5, to: 5}
+					{ color: '#BFF', name: 'Information'	, from: 1, to: 1},
+					{ color: '#FF8', name: 'Warning'		, from: 2, to: 2},
+					{ color: '#FA6', name: 'Average'		, from: 3, to: 3},
+					{ color: '#F77', name: 'High'			, from: 4, to: 4},
+					{ color: '#F11', name: 'Disaster'		, from: 5, to: 5}
 				]
 			},
 			xAxis: {
 				events: {
 					afterSetExtremes: function(e) {
 						if ((e.min === 0) && (e.max === 100)) {
+							var mainPanel = Ext.ComponentQuery.query('app-main')[0];
+
 							Cache.getIssuesServerFilter().setValue("");
 							Cache.getIssuesPriorityFilter().setValue(['0','1','2','3','4','5']);
-							Ext.ComponentQuery.query('grid-issues')[0].filters.clearFilters();
+							
+							mainPanel.getViewModel().set('issuesMapView', 'ALL');
+							mainPanel.down('grid-issues').filters.clearFilters();
+							
 							Ext.StoreMgr.lookup('Issues').reload();
-							Cache.getIssuesMap().setTitle(null, { text: 'Overview: ALL'});
 						}
 					}
 				}
 			},
 			series: [{
-				id: 'issues', type: "treemap", layoutAlgorithm: 'strip',
+				id: 'issues', type: "treemap", layoutAlgorithm: 'sliceAndDice',
 				allowDrillToNode: true, levelIsConstant: false,
-				borderColor: '#717E85', cursor: 'pointer',
+				borderColor: '#505459', cursor: 'pointer',
 				dataLabels: { enabled: false },
 				drillUpButton: {
-					position: { align: 'right', x: 65, y: -55 }
+					position: { align: 'right', x: 65, y: 5 },
+					theme: { fill: "#E6E6E6", stroke: "#E6E6E6" }
 				},
 				levels: [{
 					level: 1, borderWidth: 10,
-					dataLabels: { enabled: true, style: { fontSize: '14px'} }
+					dataLabels: { enabled: true, style: { fontSize: '16px' } }
 				},{
 					level: 2, borderColor: 'transparent'
 				}],
 				events: {
 					click: function(e) {
+						var mainPanel = Ext.ComponentQuery.query('app-main')[0];
+
 						if (!this.rootNode) {
 							Cache.getIssuesServerFilter().setValue(e.point.id);
 							Cache.getIssuesPriorityFilter().setValue(['0','1','2','3','4','5']);
-							Ext.ComponentQuery.query('grid-issues')[0].filters.clearFilters();
+
+							mainPanel.getViewModel().set('issuesMapView', e.point.name);
+							mainPanel.down('grid-issues').filters.clearFilters();
+							
 							Ext.StoreMgr.lookup('Issues').reload();
-							Cache.getIssuesMap().setTitle(null, { text: 'Overview: ' + e.point.name});
 						} else {
 							Cache.getIssuesPriorityFilter().setValue([e.point.colorValue.toString()]);
-							Ext.ComponentQuery.query('grid-issues')[0].filters.clearFilters();
+
+							mainPanel.getViewModel().set('issuesMapView', e.point.parent.toUpperCase() + ' (' + e.point.name + ')');
+							mainPanel.down('grid-issues').filters.clearFilters();
+							
 							Ext.StoreMgr.lookup('Issues').reload();
-							Cache.getIssuesMap().setTitle(null, { text: 'Overview: ' + e.point.parent.toUpperCase() + ' (' + e.point.name + ')'});
 						}
 					}
 				}
@@ -124,6 +120,6 @@ Ext.define('OctoZab.view.main.MainController', {
 	},
 
 	onIssuesMapResize: function(panel, width, height) {
-		Cache.getIssuesMap().setSize(width, height);
+		Cache.getIssuesMap().setSize(width, height-36);
 	}
 });

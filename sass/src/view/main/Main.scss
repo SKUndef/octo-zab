@@ -15,14 +15,14 @@
 .wrap-text-cell div				{ white-space: normal; }
 
 /** MAIN TAB BAR */
-.main-bar.x-panel-header-default-vertical					{ background-color: transparent;}
-.main-bar .x-tab-bar-default								{ background-color: transparent; }
-.main-bar .x-tab-bar-default-left > .x-tab-bar-body-default	{ padding: 0 13px; }
+.main-bar.x-panel-header-default-vertical					{ padding: 10px 0; }
+.main-bar .x-tab-bar-default								{ background-color: #40454C; }
+.main-bar .x-tab-bar-default-left > .x-tab-bar-body-default	{ padding: 0; }
 .main-bar .x-tab-default									{ border-color: transparent; }
-.main-bar .x-tab-default-left								{ padding: 5px 10px; background-color: transparent; }
-.main-bar .x-tab-active.x-tab-default						{ background-color: #6F7D85; border-color: #6F7D85; border-radius: 2px}
-.main-bar .x-tab-over.x-tab-default .x-tab-glyph			{ color: white; }
-.main-bar .x-tab-icon-el-default.x-tab-glyph				{ font-size: 22px; line-height: 22px; width: 22px; height: 22px; }
+.main-bar .x-tab-default-left								{ padding: 9px 22px; margin: 7px 0; background-color: transparent; }
+.main-bar .x-tab-active.x-tab-default						{ background-color: #E6E6E6; border-color: #E6E6E6; border-radius: 0}
+.main-bar .x-tab-active.x-tab-default .x-tab-glyph			{ color: #40454C; }
+.main-bar .x-tab-icon-el-default.x-tab-glyph				{ font-size: 26px; line-height: 24px; width: 26px; height: 26px; color: #E6E6E6; }
 
 /** LOGO */
 .logo-text {
@@ -33,4 +33,13 @@
 	font-weight: bold;
 	font-size: 24px;
 	font-family: verdana,sans-serif;
+}
+
+/** TAB PANEL TITLE */
+.tab-panel-title {
+	color: #7A818C;
+	font-size: 26px;
+	font-weight: bold;
+	line-height: 100%;
+	font-variant: small-caps;
 }

@@ -3,40 +3,40 @@
  */
 
 /** EVENT SEVERITY CELL styling */
-.disaster-cell			{ background-color: #FF3838 !important; }
-.high-cell				{ background-color: #FF9999 !important; }
-.average-cell			{ background-color: #FFB689 !important; }
-.warning-cell			{ background-color: #FFF6A5 !important; }
-.info-cell				{ background-color: #D6F6FF !important; }
-.not-classified-cell	{ background-color: #DBDBDB !important; }
-.ok-cell				{ background-color: #AAFFAA !important; }
-.no-ack-cell			{ background-color: #FFF6A5 !important; }
+.disaster-cell			{ background-color: #FF1E1E !important; }
+.high-cell				{ background-color: #FF7373 !important; }
+.average-cell			{ background-color: #FFA866 !important; }
+.warning-cell			{ background-color: #FFFF80 !important; }
+.info-cell				{ background-color: #BFFFFF !important; }
+.not-classified-cell	{ background-color: #D9D9D9 !important; }
+.ok-cell				{ background-color: #8CFF8C !important; }
+.no-ack-cell			{ background-color: #FFF380 !important; }
 
 /** EVENT SEVERITY ROWS styling */
-.x-grid-item .disaster-row .x-grid-cell					{ background-color: #FF3838; }
+.x-grid-item .disaster-row .x-grid-cell					{ background-color: #FF1E1E; }
 .x-grid-item-selected .disaster-row .x-grid-cell		{ background-color: #E63232; }
 .x-grid-item-over .disaster-row .x-grid-cell			{ background-color: #E63232; }
 
-.x-grid-item .high-row .x-grid-cell						{ background-color: #FF9999; }
+.x-grid-item .high-row .x-grid-cell						{ background-color: #FF7373; }
 .x-grid-item-selected .high-row .x-grid-cell			{ background-color: #E68A8A; }
 .x-grid-item-over .high-row .x-grid-cell				{ background-color: #E68A8A; }
 
-.x-grid-item .average-row .x-grid-cell					{ background-color: #FFB689; }
+.x-grid-item .average-row .x-grid-cell					{ background-color: #FFA866; }
 .x-grid-item-selected .average-row .x-grid-cell			{ background-color: #E6A47B; }
 .x-grid-item-over .average-row .x-grid-cell				{ background-color: #E6A47B; }
 
-.x-grid-item .warning-row .x-grid-cell					{ background-color: #FFF6A5; }
+.x-grid-item .warning-row .x-grid-cell					{ background-color: #FFFF80; }
 .x-grid-item-selected .warning-row .x-grid-cell			{ background-color: #E6DD95; }
 .x-grid-item-over .warning-row .x-grid-cell				{ background-color: #E6DD95; }
 
-.x-grid-item .info-row .x-grid-cell						{ background-color: #D6F6FF; }
+.x-grid-item .info-row .x-grid-cell						{ background-color: #BFFFFF; }
 .x-grid-item-selected .info-row .x-grid-cell			{ background-color: #C1DDE6; }
 .x-grid-item-over .info-row .x-grid-cell				{ background-color: #C1DDE6; }
 
-.x-grid-item .not-classified-row .x-grid-cell			{ background-color: #DBDBDB; }
+.x-grid-item .not-classified-row .x-grid-cell			{ background-color: #D9D9D9; }
 .x-grid-item-selected .not-classified-row .x-grid-cell	{ background-color: #BFBFBF; }
 .x-grid-item-over .not-classified-row .x-grid-cell		{ background-color: #BFBFBF; }
 
-.x-grid-item .acknowledged-row .x-grid-cell				{ background-color: #AAFFAA; }
+.x-grid-item .acknowledged-row .x-grid-cell				{ background-color: #8CFF8C; }
 .x-grid-item-selected .acknowledged-row .x-grid-cell	{ background-color: #99E699; }
 .x-grid-item-over .acknowledged-row .x-grid-cell		{ background-color: #99E699; }

@@ -122,8 +122,6 @@
 			"path": "resources/js/highcharts-4.1.7-treemap.min.js"
 		},{
 			"path": "resources/js/highcharts-4.1.7-no-data-to-display.min.js"
-		},{
-			"path": "resources/js/highcharts-4.1.7-sand-signika.js"
 		}
 	],
 

@@ -7,24 +7,33 @@ $font-size: 12px;
 $font-family: helvetica,arial,verdana,sans-serif;
 
 /** BODY */
-$body-background-color: #CCCCCC;
+$body-background-color: #E6E6E6;
 
 /** BUTTON */
 $button-small-font-size: 12px;
 
 /** PANEL */
-// $panel-header-color: #6A7B85;
-// $panel-header-font-size: 14px;
-// $panel-header-font-weight: bold;
-// $panel-header-text-margin: 0 0 0 6px;
+$panel-header-color: #FFF;
+$panel-header-background-color: #40454C;
+$panel-header-font-size: 14px;
+$panel-header-font-weight: bold;
+$panel-header-text-margin: 0 0 0 6px;
 $panel-body-background-color: transparent;
 
 /** GRID */
-$grid-header-background-color: #F5F5F5;
+$grid-body-border-width: 0;
+$grid-header-background-color: #40454C;
+$grid-header-border-width: 0;
+$grid-header-over-background-color: transparent;
+$grid-column-header-color: #FFF;
+$grid-column-header-font-size: 11px;
 $grid-column-header-font-weight: bold;
-$grid-grouped-header-background-color: #F8F8F8;
+$grid-column-header-border-width: 0;
+$grid-grouped-header-background-color: #40454C;
+$grid-grouped-header-border-width: 0;
+$grid-grouped-title-color: #FFF;
 $grid-grouped-title-font-weight: bold;
-$grid-grouped-title-line-height: 13px;
+$grid-grouped-title-line-height: 11px;
 $grid-row-cell-line-height: 14px;
 
 /** TAB */

@@ -1,10 +1,29 @@
 {
   "name": "octo-zab",
   "version": "0.1.0",
+  "description": "Backend application to remotely control multiple Zabbix servers",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Quadrata-it/octo-zab.git#master"
+  },
+  "keywords": [
+    "zabbix"
+  ],
+  "author": "Pietro Antonacci (SKUndef)",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/Quadrata-it/octo-zab/issues"
+  },
+  "homepage": "https://github.com/Quadrata-it/octo-zab/tree/master#readme",
   "dependencies": {
-    "ioredis": "^1.5.7",
-    "request": "^2.58.0",
-    "socket.io": "^1.3.5",
+    "ioredis": "^1.7.3",
+    "request": "^2.60.0",
+    "socket.io": "^1.3.6",
     "underscore": "^1.8.3"
   }
 }
