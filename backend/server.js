@@ -137,7 +137,7 @@ function getServerIssues(req, token, server) {
 		}
 	);
 
-	getIssuesTasks[server] = setTimeout(function() { getServerIssues(req, token, server); }, 10000);
+	getIssuesTasks[server] = setTimeout(function() { getServerIssues(req, token, server); }, 180000);
 }
 
 
