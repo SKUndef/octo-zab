@@ -11,9 +11,9 @@ Ext.define('OctoZab.view.main.ServersGridController', {
 			store 	= grid.getStore();
 		
 		grid.getPlugin('rowEdit').startEdit(store.add({
-			server: '10.10.11.165',
-			user: 	'octozab',
-			psw: 	'0ct0z2b_l2b5'
+			server: '',
+			user: 	'',
+			psw: 	''
 		})[0]);
 	},
 

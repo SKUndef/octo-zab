@@ -6,8 +6,8 @@ var _		= require('underscore'),
 	request	= require('request'),
 	io		= require('socket.io')(8080),
 	Redis	= require('ioredis'),
-	sub		= new Redis('redis://:0ct0Z2b@127.0.0.1:6379'),
-	pub		= new Redis('redis://:0ct0Z2b@127.0.0.1:6379');
+	sub		= new Redis(6379, '127.0.0.1'),
+	pub		= new Redis(6379, '127.0.0.1');
 
 var servers 			= {},
 	authPendingTasks 	= {},

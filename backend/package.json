@@ -1,6 +1,6 @@
 {
   "name": "octo-zab",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Backend application to remotely control multiple Zabbix servers",
   "main": "server.js",
   "scripts": {
