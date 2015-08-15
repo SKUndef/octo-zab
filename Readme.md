@@ -95,7 +95,9 @@ where `$backend` is the path to `"backend"` folder deployed before.
 
 ## Usage
 
-To see OctoZab in action, it's enough to connect to frontend, based on where you deployed frontend source code. If later you want to have a production release of it, use the SenchaCmd tool. Move from command-line to frontend folder, and run:
+To see OctoZab in action, it's enough to connect to frontend, based on where you deployed frontend source code. To edit a Zabbix server details (url, user, psw, ...) from related settings, and __double click on corresponding row__.
+
+If you're not using Docker container and you want to have a production release of it, use the SenchaCmd tool. Move from command-line to frontend folder, and run:
 
 ```shell
 sencha app build
