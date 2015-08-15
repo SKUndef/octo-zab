@@ -95,7 +95,7 @@ where `$backend` is the path to `"backend"` folder deployed before.
 
 ## Usage
 
-To see OctoZab in action, it's enough to connect to frontend, based on where you deployed frontend source code. To edit a Zabbix server details (url, user, psw, ...) from related settings, and __double click on corresponding row__.
+To see OctoZab in action, it's enough to connect to frontend, based on where you deployed frontend source code. To edit a Zabbix server details (url, user, psw, ...) from related settings, __double click on corresponding row__ and you'll have a row editor right on the line.
 
 If you're not using Docker container and you want to have a production release of it, use the SenchaCmd tool. Move from command-line to frontend folder, and run:
 
