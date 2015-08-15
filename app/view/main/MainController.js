@@ -26,7 +26,7 @@ Ext.define('OctoZab.view.main.MainController', {
 	onAfterRender: function(view) {
 		setTimeout(function() {
 			if (Socket.getSocket() === null) {
-				view.mask('Server unreachable...', 'no-data-mask');
+				view.mask('UNREACHABLE BACKEND');
 			}
 		}, 1000);
 	},
@@ -38,7 +38,7 @@ Ext.define('OctoZab.view.main.MainController', {
 	onIssuesMapRender: function(panel) {
 		Cache.setIssuesMap(new Highcharts.Chart({
 			chart: { 
-				renderTo: panel.body.dom, backgroundColor: '#505459', spacing: [18, 60, 18, 60]
+				renderTo: panel.body.dom, backgroundColor: '#505359', spacing: [18, 60, 18, 60]
 			},
 			title: { text: null },
 			credits: { enabled: false },
@@ -48,17 +48,17 @@ Ext.define('OctoZab.view.main.MainController', {
 			// navigation: { buttonOptions: { symbolStroke: '#F3F3F3', // symbolY: 45, theme: { fill: "#7E878C", states: { hover:	{ stroke: '#40484C', fill: '#40484C' }, select:	{ stroke: '#40484C', fill: '#40484C' } } } } },
 			legend: {
 				layout: 'vertical', align: 'right', verticalAlign: 'bottom',
-				itemMarginTop: 0, itemMarginBottom: 0, itemHoverStyle: null, // itemHiddenStyle: null,
-				itemStyle: { color: "#FFF", fontWeight: 'bold' }
+				itemMarginTop: 1, itemMarginBottom: 1, itemHoverStyle: null, // itemHiddenStyle: null,
+				itemStyle: { color: "#FFF", fontWeight: 'bold', fontSize: '11px' }
 			},
 			colorAxis: {
 				dataClasses: [
-					{ color: '#DDD', name: 'Not Classified'	, from: 0, to: 0},
-					{ color: '#BFF', name: 'Information'	, from: 1, to: 1},
-					{ color: '#FF8', name: 'Warning'		, from: 2, to: 2},
-					{ color: '#FA6', name: 'Average'		, from: 3, to: 3},
-					{ color: '#F77', name: 'High'			, from: 4, to: 4},
-					{ color: '#F11', name: 'Disaster'		, from: 5, to: 5}
+					{ color: '#DDD', name: 'NOT CLASSIFIED'	, from: 0, to: 0},
+					{ color: '#BFF', name: 'INFORMATION'	, from: 1, to: 1},
+					{ color: '#FF8', name: 'WARNING'		, from: 2, to: 2},
+					{ color: '#FA6', name: 'AVERAGE'		, from: 3, to: 3},
+					{ color: '#F77', name: 'HIGH'			, from: 4, to: 4},
+					{ color: '#F11', name: 'DISASTER'		, from: 5, to: 5}
 				]
 			},
 			xAxis: {
@@ -78,6 +78,13 @@ Ext.define('OctoZab.view.main.MainController', {
 					}
 				}
 			},
+			tooltip: {
+				pointFormat: 		"<b>{point.node.val}</b> issues",
+				backgroundColor: 	"#505459",
+				borderColor: 		"#505459",
+				borderRadius: 		0,
+				style: 				{color: "#FFF" }
+			},
 			series: [{
 				id: 'issues', type: "treemap", layoutAlgorithm: 'sliceAndDice',
 				allowDrillToNode: true, levelIsConstant: false,
@@ -85,7 +92,12 @@ Ext.define('OctoZab.view.main.MainController', {
 				dataLabels: { enabled: false },
 				drillUpButton: {
 					position: { align: 'right', x: 65, y: 5 },
-					theme: { fill: "#E6E6E6", stroke: "#E6E6E6" }
+					theme: {
+						fill: "#E6E6E6", stroke: "#E6E6E6", r: 1,
+						states: {
+							hover: { fill: "#CCC", stroke: "#CCC" }
+						}
+					}
 				},
 				levels: [{
 					level: 1, borderWidth: 10,
@@ -108,7 +120,7 @@ Ext.define('OctoZab.view.main.MainController', {
 						} else {
 							Cache.getIssuesPriorityFilter().setValue([e.point.colorValue.toString()]);
 
-							mainPanel.getViewModel().set('issuesMapView', e.point.parent.toUpperCase() + ' (' + e.point.name + ')');
+							mainPanel.getViewModel().set('issuesMapView', e.point.parent.toUpperCase() + ' / severity: ' + e.point.name.toUpperCase());
 							mainPanel.down('grid-issues').filters.clearFilters();
 							
 							Ext.StoreMgr.lookup('Issues').reload();

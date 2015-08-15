@@ -11,6 +11,6 @@ Ext.define('OctoZab.model.Base', {
 	}],
 
 	schema: {
-		namespace: 'MFMonDash.model'
+		namespace: 'OctoZab.model'
 	}
 });

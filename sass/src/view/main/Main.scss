@@ -2,26 +2,67 @@
  * MAIN APP CSS rules.
  */
 
-/** NO DATA MASK */
-.no-data-mask .x-mask-msg-text {
-	background: slategrey;
-	background-image: none;
-	padding: 10px;
-	color: white;
+/** PANEL DARK TOOL */
+.dark-tool-button.x-btn-default-small 						{ background-color: #505359; border-color: #505359; border-radius: 0; }
+.dark-tool-button.x-btn-over.x-btn-default-small 			{ background-color: #676B73; border-color: #676B73; }
+.dark-tool-button .x-btn-icon-el-default-small.x-btn-glyph 	{ color: #FFF; opacity: 1; }
+
+/** GRID */
+.x-grid-filters-filtered-column								{ color: #66B4FF; }
+.wrap-text-cell div											{ white-space: normal; }
+
+/** GRID ROWEDIT PLUGIN */
+.x-grid-row-editor .x-panel-body 							{ margin-top: 5px; }
+.x-grid-row-editor-buttons-default-top 						{ margin-bottom: -5px; }
+.x-grid-row-editor-buttons-default-bottom 					{ padding: 10px 5px 5px 5px; }
+
+/** GRID DARK BIG ROWS */
+.x-grid-item .dark-big-row .x-grid-cell	{
+	background-color: #676B73;
+	color: #FFF;
+	font-family: verdana,helvetica,arial,sans-serif;
+	line-height: 28px;
+	vertical-align: middle;
+}
+.x-grid-item-over .dark-big-row .x-grid-cell {
+	background-color: #727780;
+}
+.x-grid-item-selected .dark-big-row .x-grid-cell {
+	background-color: #727780;
 }
 
-/** GRIDS */
-.x-grid-filters-filtered-column	{ color: #1E90FF; }
-.wrap-text-cell div				{ white-space: normal; }
+/** GRID DARK ICON */
+.dark-grid-icon.x-btn-default-small {
+	background-color: transparent;
+	border-color: transparent;
+	width: 34px !important;
+	vertical-align: middle;
+}
+.dark-grid-icon .x-btn-icon-el-default-small.x-btn-glyph {
+	color: #FFF;
+	font-size: 18px;
+	opacity: 1;
+}
+
+/** WINDOW */
+.x-window-default 											{ border-radius: 0; }
+.x-window-header-default 									{ border-radius: 0; }
+
+/** MESSAGEBOX */
+.x-message-box .x-form-display-field						{ color: #FFF; }
+
+/** TOAST */
+.x-toast 													{ height: 38px !important; }
+.x-toast .x-window-body-default 							{ font-weight: bold; }
 
 /** MAIN TAB BAR */
 .main-bar.x-panel-header-default-vertical					{ padding: 10px 0; }
-.main-bar .x-tab-bar-default								{ background-color: #40454C; }
+.main-bar .x-tab-bar-default								{ background-color: #505359; }
 .main-bar .x-tab-bar-default-left > .x-tab-bar-body-default	{ padding: 0; }
 .main-bar .x-tab-default									{ border-color: transparent; }
 .main-bar .x-tab-default-left								{ padding: 9px 22px; margin: 7px 0; background-color: transparent; }
-.main-bar .x-tab-active.x-tab-default						{ background-color: #E6E6E6; border-color: #E6E6E6; border-radius: 0}
-.main-bar .x-tab-active.x-tab-default .x-tab-glyph			{ color: #40454C; }
+.main-bar .x-tab-active.x-tab-default						{ background-color: #E6E6E6; border-color: #E6E6E6; }
+.main-bar .x-tab-active.x-tab-default .x-tab-glyph			{ color: #505359; }
 .main-bar .x-tab-icon-el-default.x-tab-glyph				{ font-size: 26px; line-height: 24px; width: 26px; height: 26px; color: #E6E6E6; }
 
 /** LOGO */

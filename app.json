@@ -155,7 +155,7 @@
 			"path": "bootstrap.css",
 			"bootstrap": true
 		},{
-			"path": "resources/fonts/font-awesome-4.3.0/css/font-awesome.min.css"
+			"path": "resources/fonts/font-awesome-4.4.0/css/font-awesome.min.css"
 		}
 	],
 

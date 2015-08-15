@@ -9,16 +9,14 @@ Ext.define('OctoZab.view.issuesGrid.IssuesGrid', {
 	controller: 'issuesGrid',
 
 	store: 'Issues',
-	plugins: 'gridfilters',
 
 	title: 'ISSUES DETAILS',
 	columnLines: false,
 	rowLines: false,
 	reserveScrollbar: true,
+	sortableColumns: false,
 	
-	bodyStyle: {
-		background: "#E6E6E6"
-	},
+	plugins: 'gridfilters',
 
 	features: [{
 		ftype: 'grouping',
@@ -140,8 +138,7 @@ Ext.define('OctoZab.view.issuesGrid.IssuesGrid', {
 					[ '3', "Average" ],
 					[ '4', "High" ],
 					[ '5', "Disaster" ]
-				],
-				// value: ['3', '4', '5']
+				]
 			}
 		}]
 	}

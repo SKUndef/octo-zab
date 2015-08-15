@@ -4,24 +4,34 @@
  * details.
  */
 Ext.define('OctoZab.Application', {
+	
 	extend: 'Ext.app.Application',
 	
 	name: 'OctoZab',
+
 	requires: [
 		'OctoZab.singleton.Socket',
-		'OctoZab.singleton.Cache'
+		'OctoZab.singleton.Cache',
+		'OctoZab.singleton.Functions'
 	],
 
 	views: [
 		'main.Main',
-		'issuesGrid.IssuesGrid'
+		'issuesGrid.IssuesGrid',
+		'serversGrid.ServersGrid'
 	],
 
 	stores: [
-		'Issues'
+		'Issues',
+		'Servers'
 	],
 	
 	launch: function () {
+		Highcharts.setOptions({
+			global	: { useUTC: false },
+			chart	: { style: { fontFamily: "helvetica,arial,verdana,sans-serif" } }
+		});
+
 		Cache.connectServer(Ext.createByAlias('widget.app-main'));
 	}
 });

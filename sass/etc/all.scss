@@ -11,10 +11,22 @@ $body-background-color: #E6E6E6;
 
 /** BUTTON */
 $button-small-font-size: 12px;
+$button-default-background-color: #E6E6E6;
+$button-default-border-color: #E6E6E6;
+$button-default-color: #000;
+$button-default-glyph-opacity: 0.6;
+$button-default-background-color-over: #D9D9D9;
+$button-default-background-color-pressed: #D4D4D4;
+$button-default-background-color-focus: #D4D4D4;
+$button-default-background-color-disabled: #CCCCCC;
+$button-small-border-radius: 2px;
+
+/** TOOLBAR */
+$toolbar-footer-background-color: #505359;
 
 /** PANEL */
 $panel-header-color: #FFF;
-$panel-header-background-color: #40454C;
+$panel-header-background-color: #505359;
 $panel-header-font-size: 14px;
 $panel-header-font-weight: bold;
 $panel-header-text-margin: 0 0 0 6px;
@@ -22,24 +34,41 @@ $panel-body-background-color: transparent;
 
 /** GRID */
 $grid-body-border-width: 0;
-$grid-header-background-color: #40454C;
+$grid-header-background-color: #505359;
 $grid-header-border-width: 0;
 $grid-header-over-background-color: transparent;
 $grid-column-header-color: #FFF;
 $grid-column-header-font-size: 11px;
 $grid-column-header-font-weight: bold;
 $grid-column-header-border-width: 0;
-$grid-grouped-header-background-color: #40454C;
+$grid-grouped-header-background-color: #505359;
 $grid-grouped-header-border-width: 0;
 $grid-grouped-title-color: #FFF;
 $grid-grouped-title-font-weight: bold;
 $grid-grouped-title-line-height: 11px;
-$grid-row-cell-line-height: 14px;
+$grid-row-cell-line-height: 16px;
+$grid-row-cell-over-background-color: #E6E6E6;
+$grid-row-cell-selected-background-color: #E6E6E6;
+$grid-row-editor-background-color: #E6E6E6;
+$grid-row-editor-border-color: #E6E6E6;
 
 /** TAB */
 $tab-glyph-opacity: 1;
 
+/** WINDOW */
+$window-header-background-color: #505359;
+$window-border-width: 0;
+$window-body-color: #FFF;
+
+/** MESSAGEBOX */
+$messagebox-body-background-color: #505359;
+
 /** LOADMASK */
-$loadmask-opacity: 1;
-$loadmask-background-color: #E5E5E5;
+$loadmask-opacity: 0.5;
+$loadmask-background-color: #E6E6E6;
+$loadmask-msg-background-color: #505359;
+$loadmask-msg-border-radius: 0;
+$loadmask-msg-text-padding: 5px;
+$loadmask-msg-inner-color: #FFF;
 $loadmask-msg-inner-font-weight: bold;
+$loadmask-msg-inner-icon: none;

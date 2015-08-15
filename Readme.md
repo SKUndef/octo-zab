@@ -13,6 +13,8 @@ Demo: [here](http://demo.quadrata.it/octozab/)
 - Issues treemap overview, with drilldown per server
 - Dynamic filtering on issues list through interaction with treemap objects
 - Redirect to issue details from issues list
+- NEW! Zabbix servers configuration management, ability to add, remove and choose credentials!
+- NEW! Notification to all connected users on configuration changes (like the servers one)
 
 
 ## Dependencies
@@ -34,29 +36,23 @@ docker pull quadrata/octozab
 docker run -it -d -p $frontendHostPort:80 -p $backendHostPort:8080 --name="octoZab" quadrata/octozab
 ```
 
-where $frontendHostPort and $backendHostPort are ports on your host where you desire that frontend and backend respectively should run. Now you have to configure a bit the container. Attach to it, start Apache WebServer and Redis services, and add Zabbix servers to monitor:
+where $frontendHostPort and $backendHostPort are ports on your host where you desire that frontend and backend respectively should run. Now you have to configure the container. Attach to it and start necessary services:
+
+```shell
+docker attach octoZab
+```
 
 ```shell
 service httpd start
 service octozab-redis start
-```
-
-```shell
-docker attach octoZab
-redis-cli sadd octo-zab:servers:name.set serverDomain1 serverDomain2 ...
-```
-
-Whenever you want to remove some of the servers, replace `sadd` with `sdel` and specify list of servers to remove (after having modified servers list to monitor, restart `octozab-node` service mentioned below). At the moment backend connects to Zabbix servers through default administration user `Admin` and psw `zabbix`, so be sure they exist on them.
-
-Modify frontend `"/var/www/html/octozab/config.js"` with your host url and host backend port you defined above at container run.
-
-Finally, start the backend server:
-
-```shell
 service octozab-node start
 ```
 
-And then detach from container with Ctrl+P-Ctrl+Q.
+Modify frontend `"/var/www/html/octozab/config.js"` with your host url and host backend port you defined above at container run.
+
+IMPORTANT! When we speak about host, it is meant host, not the container. So above with $frontendHostPort and $backendHostPort we were referring to host ports on which are mapped container ports. And with host url in "config.js" we mean the url on which you access your host, not the container.
+
+Then detach from container with Ctrl+P-Ctrl+Q.
 
 
 That's it! Now you should be able to connect to application browsing at `http://yourHostUrl:yourHostFrontendPort/octozab` (if you mapped container port 80, webserver one, with port 80 on your host, you can omit the `:yourHostFrontendPort` url part).
@@ -67,14 +63,6 @@ That's it! Now you should be able to connect to application browsing at `http://
 In order to test the application, first step is to install dependencies listed above. Once `node`, `npm`, `redis-server` and `redis-cli` executables are installed on server, you can start deploying both backend and frontend by cloning repository on webserver root.
 
 If you prefer to deploy backend and frontend on different machines, copy only `"backend"` folder on backend machine, and the rest of the repository on frontend machine. Then modify in the file `"config.js"` the `backendUrl` parameter with backend domain name. Be sure port `8080` is exposed to frontend from backend.
-
-List of Zabbix servers to monitor is retrieved from Redis DB, therefore it's necessary to set right key on DB as follows:
-
-```shell
-redis-cli sadd octo-zab:servers:name.set serverDomain1 serverDomain2 ...
-```
-
-Whenever you want to remove some of the servers, replace `sadd` with `sdel` and specify list of servers to remove (after having modified servers list to monitor, restart `octozab-node` service mentioned below). At the moment backend connects to Zabbix servers through default administration user `Admin` and psw `zabbix`, so be sure they exist on them.
 
 Install NodeJS module dependencies. Move from command-line to backend folder and run following command:
 
@@ -118,7 +106,8 @@ You will find the production release under `"$frontend/build/production/OctoZab"
 
 ## Roadmap
 
-- Allow to specify credentials for each Zabbix server
+- ~~Allow to specify credentials for each Zabbix server~~
+- ~~Add, remove, modify Zabbix servers configuration from frontend~~
 - Replace treemap overview with some other way/chart that gives a better understanding of each Zabbix server healthy (give us your feedback on this)
 - Many more Zabbix features based on audience feedback
 

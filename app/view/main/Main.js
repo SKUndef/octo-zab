@@ -54,11 +54,10 @@ Ext.define('OctoZab.view.main.Main', {
 			margin: '0 0 10 0',
 			flex: 	3,
 			bind: {
-				title: 	'ISSUES MAP - Overview: {issuesMapView}'
+				title: 	'ISSUES MAP <span style="color: #DDD; font-size: 12px">/ server: {issuesMapView}</span>'
 			}
 		},{
 			xtype: 	'grid-issues',
-			itemId: 'panel-issues-list',
 			margin: '10 0 0 0',
 			flex: 	4
 		}]
@@ -74,6 +73,10 @@ Ext.define('OctoZab.view.main.Main', {
 			height: 26,
 			margin: '0 0 20 0',
 			cls: 	'tab-panel-title'
+		},{
+			xtype: 	'grid-servers',
+			margin: '0 0 10 0',
+			height: 300
 		}]
 	}]
 });

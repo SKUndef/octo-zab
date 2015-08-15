@@ -12,13 +12,17 @@ Ext.define('OctoZab.store.Issues', {
 	batchUpdateMode: 'complete',
 
 	groupField: 'server',
+
 	sorters: [{
+		property: 'acknowledged'
+	},{
 		property: 'priority',
 		direction: 'DESC'
 	},{
 		property: 'lastchange',
 		direction: 'DESC'
 	}],
+	
 	filters: [
 		Cache.getIssuesServerFilter(),
 		Cache.getIssuesPriorityFilter()
