@@ -21,9 +21,9 @@
   },
   "homepage": "https://github.com/Quadrata-it/octo-zab/tree/master#readme",
   "dependencies": {
-    "ioredis": "^1.7.4",
-    "request": "^2.60.0",
-    "socket.io": "^1.3.6",
+    "ioredis": "^1.9.1",
+    "request": "^2.64.0",
+    "socket.io": "^1.3.7",
     "underscore": "^1.8.3"
   }
 }
